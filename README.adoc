@@ -1,0 +1,14 @@
+= YC's DevNotes
+
+尝试写一些有关软件开发的文章，把一些知识与经验分享出来供大家参考。
+
+文章所涉及的主题，主要包括软件架构、软件工程、编码效率与质量、开发工具、写作工具，等等。
+
+## 目录
+
+### 写作工具
+* link:writing/0001-writing-in-asciidoc.adoc[0001 Writing in AsciiDoc] (2017/11/19)
+
+## License
+
+本仓库中的所有文章，均采用“Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)” 协议发布。可以到 http://creativecommons.org/licenses/by-nc-nd/4.0/ 查看该协议。

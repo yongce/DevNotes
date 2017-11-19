@@ -1,0 +1,375 @@
+# Writing in AsciiDoc
+Yongce Tu <yongce.tu@gmail.com>
+v1.0, 2017-11-19
+:toc:
+:toc-placement: preamble
+:toclevels: 3
+
+---
+文章更新历史：
+
+* 2017/11/19 文章发布
+
+'''
+
+:numbered:
+
+## AsciiDoc与AsciiDoctor
+
+在软件开发社区中，Markdown是最为常用的写作工具。但Markdown的原始版本支持的特性非常有限，
+很多常见的写作需求得不到满足，于是产生了很多第三方衍生版本，其中最有名的衍生版本应该是GFM（GitHub Flavored Markdown）。
+尽管有了特性更丰富的众多衍生版本，但依然有一些写作需求得不到满足。
+
+这世界上有很多写作工具，其目标用户和使用场景各有不同。AscciDoc就是其中一个，相对简单却又功能丰富。
+既可以像Markdown那样简单使用，也可以用上更多特性，解决我们的绝大多数对写作工具的需求。
+另外一个值得关注的是，GitHub除了支持自家的GFM，同时也还支持AsciiDoc。
+
+那AsciiDoctor又是什么？用其官方网站的一句话解释：
+
+[quote, AsciiDoctor]
+____
+A fast text processor & publishing toolchain for converting AsciiDoc to HTML5, DocBook & more.
+____
+
+## 基本用法
+
+### 标题
+
+在AsciiDoc中，有三类标题：
+
+* 文章标题
+* 章节标题
+* 块标题
+
+**所有标题都是可选的**。
+
+#### 文章标题
+
+见本文第一行就是，也请关注下其下的header信息。
+
+在AsciiDoc中，文章标题用 `=` 来标识，但也可以用Markdown中的 `#` 来标识。
+
+TIP: 在文章标题和第一个章节标题之间的内容是序文，可有可无。
+
+#### 章节标题
+
+其标识符同『文章标题』，共支持5级（2个~6个标识符）。
+
+TIP: 第一级章节标题（2个 `##`）对应HTML中的<h2>。
+
+#### 块标题
+
+在AsciiDoc中，很多元素都可以带一个『块标题』，举例如下。
+
+.这是一段文字的标题
+这是一段文字，写的什么不重要，重要的是，它有一个标题。
+这是一段文字，写的什么不重要，重要的是，它有一个标题。
+这是一段文字，写的什么不重要，重要的是，它有一个标题。
+
+.这是一个列表的标题
+* 列表项
+* 列表项
+* 列表项
+
+.这是一个代码块的标题
+```C++
+cout << "Hello, world" << endl;
+```
+
+TIP: 还有很多，当不确定时，加个标题试试看。
+
+### 段落
+
+在段落中，有时，不想分段，但想强制换行，可以这样： +
+用一个 `+` 就可以了。
+
+// TODO 补充一些常见段落内文字处理的示例
+
+### 列表
+
+#### 无序号列表
+
+下面是一个无序号列表：
+
+.这是一个列表（可选）
+* 列表项
+* 列表项
+* 列表项
+
+下面是一个嵌套殂：
+
+.这是一个嵌套列表（可选）
+* 列表项
+** 嵌套列表项
+** 嵌套列表项
+*** 嵌套列表项
+* 列表项
+* 列表项
+
+#### 序号列表
+
+.这是一个列表（可选）
+1. 列表项
+1. 列表项
+1. 列表项
+
+.这是另外一个列表
+[start=0]
+1. 列表项
+1. 列表项，这行内容有长，
+需要换行
+1. 列表项
+
+.这是一个嵌套列表
+. 列表项
+. 列表项
+.. 嵌套列表项，
+太长，需要换行
+.. 嵌套列表项
+. 列表项
+
+#### 标签列表
+
+.这是一个标签列表
+标签1:: 标签的相关解释
+标签2:: 标签的相关解释
+
+.这是另一个标签列表（水平）
+[horizontal]
+标签1::
+标签的相关解释
+标签2::
+标签的相关解释
+
+.这是一个有嵌套的标签列表
+标签1::
+标签的相关解释
+标签2::
+标签的相关解释：
+
+. 列表项
+. 列表项
+
+#### 复杂情形
+
+.这是一个比较复杂的列表
+. 列表项
++
+--
+看一段代码：
+```java
+executeTask(a -> a * 2, 10);
+```
+
+多来几个段落
+
+NOTE: 这是一个说明
+--
+
+. 列表项
++
+----
+这儿有一些东西需要框起来
+----
++
+NOTE: 这是另外一个说明
+
+### 表格
+
+表格的文档见：
+http://asciidoc.org/userguide.html#_tables
+
+#### 表1
+
+.这是表名（可选）
+|===
+|列名1 |列名2 |列名3
+
+|row 1, column 1
+|row 1, column 2
+|row 1, column 3
+
+|row 2, column 1
+|row 2, column 2
+|row 2, column 3
+
+|===
+
+#### 表2
+
+[cols=3*,options="header",width="90%",align="center"]
+|===
+|列名1
+|列名2
+|列名3
+
+|row 1, column 1
+|row 1, column 2
+|row 1, column 3
+
+|row 2, column 1
+|row 2, column 2
+|row 2, column 3
+|===
+
+#### 表3
+
+.这是表名
+[cols="2,2,3"]
+|===
+|row 1, column 1
+|row 1, column 2
+|row 1, column 3,
+这行有点长，需要换行哦
+
+|row 2, column 1
+|row 2, column 2
+|row 2, column 3
+|===
+
+#### 表4
+
+.这是表名
+[cols="^2,>2,3",frame="topbot",options="header,footer"]
+|===
+|列名1 |列名2 |列名3
+
+|row 1, column 1
+|row 1, column 2
+a|这儿有一个内嵌的列表：
+
+* 列表项1
+* 列表项2
+* 列表项3
+
+|row 2, column 1
+|row 2, column 2
+|row 2, column 3
+
+|footer1 | footer2 |footer3
+|===
+
+#### 表5 (CVS)
+
+.这是表名
+[%header,cols="2,3,5"]
+,===
+ID,Nickname,Email
+xxx,Tom,xxx@gmail.com
+yyy,Cat,yyy@gmail.com
+,===
+
+### URI链接
+
+#### 外部链接
+
+在文字中有一个链接 https://github.com/yongce ，会被自动识别。
+
+如果不想显示URI的scheme，可以在文档的header中添加如下选项：
+
+----
+:hide-uri-scheme:
+----
+
+如果想用文字来代替显示URL，可以这样做 https://github.com/yongce[Yongce@GitHub]。
+
+#### 相对路径
+
+跳转到本仓库的README文档：link:../README.adoc[README]
+
+### 图片
+
+. 最简版本：
++
+image::../images/java-compile-with-desugar.png[]
+
+. 可以给图片加上标题，还可以为其指定跳转连接：
++
+.这是图片标题
+[link=https://developer.android.com/studio/images/write/desugar_2x.png]
+image::../images/java-compile-with-desugar.png[Java8,width="600"]
+
+. 在文字中嵌入图片 image:../images/java-compile-with-desugar.png[Java8, title="Java8 in Title",width="200"]，看到了么
+
+### 块
+
+#### 代码块
+
+当我们需要显示代码，或者希望像显示代码一样去显示内容时，就应该用『代码块』来解决。
+『代码块』由两行4个或者更多 `-` 来限定其中的内容。
+
+.这是一段代码
+[source,java]
+----
+@FunctionalInterface # <1>
+interface OperatorTypeOne {
+    int operate(int value); # <1>
+}
+----
+<1> 代码解释1
+<2> 代码解释2
+
+
+#### Example块
+
+.标题
+====
+这是Xxx的说明
+
+该这样使用，示例如下
+====
+
+#### 引用
+
+.这是某某曾经说过的话
+[quote, 小二, 2017年11月XXX村]
+____
+这是某位名人说过的话。。。
+
+具体内容是什么不知道。。。
+____
+
+#### 列举块
+
+[listing]
+$ adb root
+$ adb remount
+
+#### 提示、警告等
+
+支持的所有提示、警告类别如下（并示例其简单写法，如 `TIP: xxxx`）：
+
+. NOTE
++
+NOTE: 这是一段说明
+
+. TIP
++
+TIP: 这是一段说明
+
+. IMPORTANT
++
+IMPORTANT: 这是一段说明
+
+. CAUTION
++
+CAUTION: 这是一段说明
+
+. WARNING
++
+WARNING: 这是一段说明
+
+还可以有另外一种形式，用块来处理更复杂的情况：
+
+[TIP]
+====
+这是一段示例代码：
+
+```java
+interface OperatorTypeTwoLong {
+    long operate(long lhs, long rhg);
+}
+```
+====
+
+## 高级用法
