@@ -1,6 +1,15 @@
 # Writing in AsciiDoc
 Yongce Tu <yongce.tu@gmail.com>
 v1.0, 2017-11-19
+// Settings
+ifdef::env-github[]
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:important-caption: :exclamation:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+// TOC
 :toc:
 :toc-placement: preamble
 :toclevels: 3
@@ -30,6 +39,45 @@ v1.0, 2017-11-19
 ____
 A fast text processor & publishing toolchain for converting AsciiDoc to HTML5, DocBook & more.
 ____
+
+
+## 编辑与渲染
+
+AsciiDoc文档的文件后缀一般用 `adoc` 或者 `asc`，在常见编辑器及GitHub中都支持。
+
+### 编辑器
+
+支持AsciiDoc文档编辑与渲染（预览）的工具很多，个人推荐Atom（同样适用于Markdown），只需要安装如下插件即可:
+
+* https://atom.io/packages/language-asciidoc[language-asciidoc]
+* https://atom.io/packages/asciidoc-preview[asciidoc-preview]
+
+### GitHub
+
+如果想测试AsciiDoc在GitHub上的渲染效果，建议在你的GitHubGist帐户中创建一个测试文件（xxx.adoc），
+可以反复修复文件，查看效果。
+
+GitHub虽然支持AsciiDoc文档的渲染，但效果比起上面的Atom插件就差多了，不过将就看就行。
+
+
+为了让你的AsciiDoc文档在GitHub上更好看一点，可以做一些配置:
+
+. 提示、警告块的图标
++
+--
+在AsciiDoc文档header中添加如下设置项，即可在GitHub上为『提示』、『警告』块加上图标（默认为文字）：
+
+```asciidoc
+\ifdef::env-github[]
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:important-caption: :exclamation:
+:caution-caption: :fire:
+:warning-caption: :warning:
+\endif::[]
+```
+TIP: 参见本文档header部分。
+--
 
 ## 基本用法
 
@@ -72,7 +120,7 @@ TIP: 第一级章节标题（2个 `##`）对应HTML中的<h2>。
 * 列表项
 
 .这是一个代码块的标题
-```C++
+```cpp
 cout << "Hello, world" << endl;
 ```
 
@@ -301,9 +349,9 @@ image::../images/java-compile-with-desugar.png[Java8,width="600"]
 .这是一段代码
 [source,java]
 ----
-@FunctionalInterface # <1>
+@FunctionalInterface <1>
 interface OperatorTypeOne {
-    int operate(int value); # <1>
+    int operate(int value); <2>
 }
 ----
 <1> 代码解释1
