@@ -23,15 +23,32 @@ endif::[]
 
 :numbered:
 
-## AsciiDoc与AsciiDoctor
+## 一切皆代码
 
-在软件开发社区中，Markdown是最为常用的写作工具。但Markdown的原始版本支持的特性非常有限，
-很多常见的写作需求得不到满足，于是产生了很多第三方衍生版本，其中最有名的衍生版本应该是GFM（GitHub Flavored Markdown）。
+随着代码越写越多，软件开发经验的不断积累，程序员会变得越来越“谨小慎微”。
+做任何一个代码提交前，都会仔细地确认所做的修改。而这需要版本管理系统的支持才可做到。
+如果所做的工作没有版本管理，那么可能会是一件很不痛快的事情。
+
+在程序员的日常工作中，除了要编写软件的源代码，还经常需要撰写一些技术文档（包括一些架构设计图等）。
+而在部分程序员眼中，“一切皆代码”是一件应当努力追求的事情，不论是技术文档还是设计图。
+
+以自己为例，会把所有的代码、文字存于GitHub（公开信息）或者Bitbucket（非公开信息）。
+
+## AsciiDoc
+
+### Why AsciiDoc
+
+在软件开发社区中，Markdown是被大家广泛接受的一个文档写作工具，其语法简单、支持工具众多。
+但正因为其语法简单，支持的特性相对贫乏，无法满足稍微复杂一点的写作诉求。
+于是产生了很多第三方衍生版本，其中最有名的衍生版本应该是GFM（GitHub Flavored Markdown）。
 尽管有了特性更丰富的众多衍生版本，但依然有一些写作需求得不到满足。
+例如，无法在节标题中添加编号，无法为代码块添加解读说明，等等。
 
-这世界上有很多写作工具，其目标用户和使用场景各有不同。AscciDoc就是其中一个，相对简单却又功能丰富。
-既可以像Markdown那样简单使用，也可以用上更多特性，解决我们的绝大多数对写作工具的需求。
-另外一个值得关注的是，GitHub除了支持自家的GFM，同时也还支持AsciiDoc。
+这世界上还有很多写作工具，其目标用户和使用场景各不相同。AscciDoc就是其中一个，语法相对简单却又功能丰富。
+既可以像Markdown那样简单使用，也可以用上更多特性，解决我们的绝大多数写作诉求。
+幸运的是，GitHub除了支持自家的GFM，同时也还支持AsciiDoc。
+
+### AsciiDoctor
 
 那AsciiDoctor又是什么？用其官方网站的一句话解释：
 
@@ -41,18 +58,18 @@ A fast text processor & publishing toolchain for converting AsciiDoc to HTML5, D
 ____
 
 
-## 编辑与渲染
+### 编辑与渲染
 
 AsciiDoc文档的文件后缀一般用 `adoc` 或者 `asc`，在常见编辑器及GitHub中都支持。
 
-### 编辑器
+#### 编辑器
 
 支持AsciiDoc文档编辑与渲染（预览）的工具很多，个人推荐Atom（同样适用于Markdown），只需要安装如下插件即可:
 
 * https://atom.io/packages/language-asciidoc[language-asciidoc]
 * https://atom.io/packages/asciidoc-preview[asciidoc-preview]
 
-### GitHub
+#### GitHub
 
 如果想测试AsciiDoc在GitHub上的渲染效果，建议在你的GitHubGist帐户中创建一个测试文件（xxx.adoc），
 可以反复修复文件，查看效果。
@@ -421,3 +438,5 @@ interface OperatorTypeTwoLong {
 ====
 
 ## 高级用法
+
+TODO...
